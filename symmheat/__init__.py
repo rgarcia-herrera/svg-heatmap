@@ -40,11 +40,11 @@ class Heatmap:
     def draw(self):
         y = 0
         width = 10
-        for i in self.keys:
+        for i in range(len(self.keys)):
             x = 0
-            for j in self.keys:
+            for j in range(i):
                 c = Cell( insert=(x,y), size=(width, width),
-                          value=self.pairs.get((i,j)))
+                          value=self.pairs.get((self.keys[i],self.keys[j])))
                 self.dwg.add( c.getDwg() )
                 x += width
             y += width
